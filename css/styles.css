@@ -78,9 +78,7 @@ section {
     text-decoration: none;
 }
 /* --------------- navigation------------- */
-.header {
-   border-bottom :1px solid #ECECEC; 
-}
+
 
 
 .navigation {
@@ -139,6 +137,7 @@ section {
    margin-left: 0;
 }
 
+
 .header-logo,
 .footer-logo{
     text-decoration: none;   
@@ -153,7 +152,6 @@ section {
     /* identical to box height */
     letter-spacing: 0.03em;
     color: var(--text-logo-color);
-
     transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
    
    
@@ -179,9 +177,27 @@ section {
     color: var(--title-text-color);
     padding-top: 32px;
     padding-bottom: 32px;
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
  }
+ .header-link::after {
+     content: '';
+     display: block;
+     position: absolute;
+     width: 100%;
+     height: 5px;
+     left: 0;
+     bottom: 0;
+     background-color: var(--accent-text-color);
+     border-radius: 2px;
+     opacity: 0;
+     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+ }
+  .header-link:hover::after{
+    opacity: 1;
+  }
+ 
  .header-link:hover,
  .header-link:focus{
   color: var(--accent-text-color);
@@ -232,7 +248,7 @@ section {
     background-color:var(--accent-text-color);
     margin-top: 30px;
     padding: 10px 32px;
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .hero-btn:hover,
 .hero-btn:focus { 
@@ -376,7 +392,8 @@ background-color: #188CE8;
     align-items: center;
     justify-content: center;
     color:#AFB1B8;
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
         
 }
 .employees-soc-icon {
@@ -420,7 +437,7 @@ background-color: #188CE8;
     border: 1px solid #AFB1B8;
     border-radius: 4px;
     color: #AFB1B8;
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
     
     
 }
@@ -468,7 +485,7 @@ background-color: #188CE8;
     line-height: 1.71;
     letter-spacing: 0.03em;
     color: var(--text-white-color);
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer-adress:hover,
 .footer-adress:focus{
@@ -482,7 +499,7 @@ background-color: #188CE8;
     line-height: 1.71;
     letter-spacing: 0.03em;
     color: rgba(255, 255, 255, 0.6);
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-link:hover,
@@ -490,12 +507,13 @@ background-color: #188CE8;
     color:var(--accent-text-color);
 } 
     /*---------------backdrop-------------*/
-.backdrop {
+  .backdrop {
     position:fixed;
     top: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.2);
+    transition: opasity 250ms linear visibility 250ms ;
 }
 .modal-window {
     position: absolute;
@@ -503,11 +521,16 @@ background-color: #188CE8;
     min-height: 581px;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%) scale(1);
     background: #FFFFFF;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
+    transition: transform 250ms linear;
 }
+.backdrop .is-hidden .modal-window {
+    transform: translate(-50%, -50%) scale(0);
+}
+
 .modal-close {
     position: absolute;
     top: 8px;
@@ -519,6 +542,9 @@ background-color: #188CE8;
     visibility: hidden;
     pointer-events: none;
 }
+.no-scroll {
+    overflow: hidden;
+}  
 
 
     /* ----------join-------- */
@@ -557,7 +583,7 @@ background-color: #188CE8;
     justify-content: center;
     background-color:rgba(255, 255, 255, 0.1);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
@@ -598,7 +624,8 @@ background-color: #188CE8;
         color: var(--title-text-color);
         background-color: var(--secondary-background-color);
         padding: 6px 22px;
-        transition:  250ms cubic-bezier(0.4, 0, 0.2, 1);
+        transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
         
 } 
 .filter-btn:hover, 
@@ -610,7 +637,7 @@ background-color: #188CE8;
       /* --------projekt------- */
 .projekt-link {
    display: block;
-   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .projekt-link:hover,
 .projekt-link:focus {
