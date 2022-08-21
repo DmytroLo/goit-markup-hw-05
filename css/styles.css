@@ -509,7 +509,7 @@ background-color: #188CE8;
     color:var(--accent-text-color);
 } 
     /*---------------backdrop-------------*/
-  /* .backdrop {
+   .backdrop {
     position:fixed;
     top: 0;
     width: 100%;
@@ -546,7 +546,7 @@ background-color: #188CE8;
 }
 .no-scroll {
     overflow: hidden;
-}   */
+}   
 
 
     /* ----------join-------- */
