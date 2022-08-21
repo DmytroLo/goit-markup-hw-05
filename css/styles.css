@@ -79,7 +79,9 @@ section {
 }
 /* --------------- navigation------------- */
 
-
+.header {
+    border-bottom: 1px solid #F5F4FA;
+}
 
 .navigation {
     display: flex;
@@ -185,9 +187,9 @@ section {
      display: block;
      position: absolute;
      width: 100%;
-     height: 5px;
+     height: 4px;
      left: 0;
-     bottom: 0;
+     bottom: -1px;
      background-color: var(--accent-text-color);
      border-radius: 2px;
      opacity: 0;
@@ -507,7 +509,7 @@ background-color: #188CE8;
     color:var(--accent-text-color);
 } 
     /*---------------backdrop-------------*/
-  .backdrop {
+  /* .backdrop {
     position:fixed;
     top: 0;
     width: 100%;
@@ -544,7 +546,7 @@ background-color: #188CE8;
 }
 .no-scroll {
     overflow: hidden;
-}  
+}   */
 
 
     /* ----------join-------- */
